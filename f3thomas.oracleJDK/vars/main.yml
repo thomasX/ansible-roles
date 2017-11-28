@@ -1,0 +1,3 @@
+---
+# vars file for f3thomas.oracleJDK8
+#java_version: "{{java_version}}"

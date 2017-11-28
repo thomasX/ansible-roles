@@ -1,0 +1,13 @@
+---
+# tasks file for f3thomas.oracleJDK8
+      - name: Install java {{java_version}} preresequesits
+        apt: name=python-software-properties
+
+      - name: Add Java {{java_version}} repository
+        apt_repository: repo='ppa:webupd8team/java'
+
+      - name: Agree to oracle license
+        debconf: name=oracle-java{{java_version}}-installer question=shared/accepted-oracle-license-v1-1 vtype=select value=true
+
+      - name: Install Java {{java_version}}
+        apt: name=oracle-java{{java_version}}-installer force=yes        

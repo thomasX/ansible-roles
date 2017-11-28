@@ -1,0 +1,14 @@
+---
+# tasks file for f3thomas.oracleJDK8
+ 
+        
+- name: check for version
+  fail: msg="ERROR - 'java_version' is required."
+  when: java_version is not defined
+
+- include: install.yml
+
+  
+- name: check valid Version Number
+  fail: msg="ERROR - 'java_version' must be one of [ 6,7,8,9 ] "
+  when: java_version not in [6,7,8,9]
